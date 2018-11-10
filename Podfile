@@ -6,6 +6,7 @@ target 'NewsApi' do
   use_frameworks!
 pod 'Alamofire', '4.4.0'
 pod ‘Moya’, ‘10.0.1’
+pod 'SVProgressHUD'
   # Pods for NewsApi
 
   target 'NewsApiTests' do

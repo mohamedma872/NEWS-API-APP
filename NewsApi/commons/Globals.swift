@@ -9,9 +9,9 @@
 import Foundation
 public  class Globals {
     
-    static private let NewsKey = "46af9de4e3da431985c96a7d2c32a229"
-
-    public static let BaseUrl = "http://96.126.98.174"
+    public static  let NewsKey = "46af9de4e3da431985c96a7d2c32a229"
+    public static  let sources = "national-geographic"
+    public static let BaseUrl = "https://newsapi.org/v2"
     
     
     
