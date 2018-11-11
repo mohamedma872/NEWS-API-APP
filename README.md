@@ -1,18 +1,5 @@
 # NEWS-API-APP
-Mobile Developer - Assessment Structure
-The technical assessment is aimed to determine the candidate’s technical and analytical.
-Competencies. The process should include:
-• A Small project assignment
-- Evaluate Design patterns
-- Coding style
-- Unit tests
-• Code pair for live coding interview (HackerRank or similar platform)
-- Evaluate the core skills
-- Technical Design
-• Behavioral
-• HR Discussion
-Screening project assignment
-NEWS API APP
+
 Write an app to list all the news feeds in a list. The selection of any new feed would load
 the detail page of news. The task includes
 1. List of all the news with on demand updates
