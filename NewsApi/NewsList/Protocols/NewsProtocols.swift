@@ -9,16 +9,19 @@
 import Foundation
 import UIKit
 
+ // PRESENTER -> VIEW
 protocol PresenterToViewProtocol: class {
     func showNews(news: NewsModel);
     func showError();
+    func showLoading()
+    func hideLoading()
 }
-
+// INTERACTOR -> PRESENTER
 protocol InterectorToPresenterProtocol: class {
     func liveNewsFetched(news: NewsModel);
     func liveNewsFetchedFailed();
 }
-
+// PRESENTER -> INTERACTOR
 protocol PresentorToInterectorProtocol: class {
     var presenter: InterectorToPresenterProtocol? {get set} ;
     func fetchLiveNews();
@@ -27,10 +30,13 @@ protocol PresentorToInterectorProtocol: class {
 protocol ViewToPresenterProtocol: class {
     var view: PresenterToViewProtocol? {get set};
     var interector: PresentorToInterectorProtocol? {get set};
-    var router: PresenterToRouterProtocol? {get set}
+    var Router: PresenterToRouterProtocol? {get set}
     func updateView();
+    func showNewsDetail (forArticle article: Article)
 }
 
 protocol PresenterToRouterProtocol: class {
     static func createModule() -> UIViewController;
+    // PRESENTER -> WIREFRAME
+    func presentNewsDetailScreen(from view: PresenterToViewProtocol, forarticle article: Article)
 }

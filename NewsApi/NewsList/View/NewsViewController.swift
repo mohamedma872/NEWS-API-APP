@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class NewsViewController: UIViewController {
  var presenter: ViewToPresenterProtocol?
-    
     var articles = [Article]()
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -22,27 +21,29 @@ class NewsViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var tbl: UITableView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
 extension NewsViewController: PresenterToViewProtocol {
+    func showLoading() {
+       SVProgressHUD.show()
+    }
+    
+    func hideLoading() {
+         SVProgressHUD.dismiss()
+    }
+    
     
     func showNews(news: NewsModel) {
-//        authorLabel.text = news.author;
-//        titleLabel.text = news.title;
-//        descriptionLabel.text = news.description;
+
+        self.articles = news.articles
+        tbl.reloadData()
+        
     }
     
     func showError() {
@@ -72,6 +73,12 @@ extension NewsViewController :UITableViewDelegate,UITableViewDataSource {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.ArticlesTableViewCell.rawValue, for: indexPath) as! ArticleTableViewCell
         cell.setUp(withArticle: articles[indexPath.row])
+        cell.contentView.backgroundColor = UIColor.clear
+
+     
         return  cell
 }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.showNewsDetail(forArticle: articles[indexPath.row])
+    }
 }

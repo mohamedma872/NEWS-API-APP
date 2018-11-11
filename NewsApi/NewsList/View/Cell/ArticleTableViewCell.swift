@@ -43,6 +43,15 @@ class ArticleTableViewCell: UITableViewCell {
         
         //Format Time to Hours Ago before setting
         //sourceTimeLabel.text = withArticle.publishedAt
+         var dateForm: Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-mm-yyyy"
+        let date = dateFormatter.date(from: withArticle.publishedAt!)
+        dateForm = date ?? Date()
+        let datestring = dateFormatter.string(from: dateForm)
+        sourceDateMonthLabel.text = datestring
+        
+        
         let tempImageView = UIImageView()
         guard let imageURLString = withArticle.urlToImage else {
             SVProgressHUD.setDefaultMaskType(.black)
