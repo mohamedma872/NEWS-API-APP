@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/// this class contain all the globals variables
 public  class Globals {
     
     public static  let NewsKey = "46af9de4e3da431985c96a7d2c32a229"

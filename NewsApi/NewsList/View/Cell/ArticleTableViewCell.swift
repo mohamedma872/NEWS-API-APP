@@ -27,7 +27,12 @@ class ArticleTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+    /**
+     this method for setUp cell in uitableview.
+     - Parameters:
+       - Article
+     
+     */
     func setUp(withArticle: Article) {
         //Set Selected Article
         self.article = withArticle

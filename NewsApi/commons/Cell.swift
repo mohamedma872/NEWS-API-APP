@@ -7,9 +7,9 @@
 //
 
 import Foundation
+/// this class contain all the Identifires For Cells
 enum Cell : String {
-    
-    //Star
+    ///this is for News table View Cell
     case ArticlesTableViewCell = "articlesTableViewCell"
     
     

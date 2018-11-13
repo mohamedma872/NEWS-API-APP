@@ -11,6 +11,15 @@ import SVProgressHUD
 extension UIImageView {
     typealias IMAGEResult = ( (UIImage?) -> Void  )
     
+    /**
+     download Image From Url.
+     
+     - Parameters:
+     
+       - URL: The Image Url
+     
+     - Returns: UIImage as Clousre
+     */
     func downloadImageFromUrl(url : URL , completion : @escaping IMAGEResult) {
         
         let imageDownloader = NetworkProcessor(url: url)
@@ -30,25 +39,5 @@ extension UIImageView {
             }
         }
     }
-    func downloadedFrom(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        
-        contentMode = mode
-        
-        self.backgroundColor = UIColor(white: 1, alpha: 0.6)
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            
-            DispatchQueue.main.async() {
-                self.backgroundColor = UIColor.clear
-                self.image = image
-            }
-            }.resume()
-    }
-    
+   
 }

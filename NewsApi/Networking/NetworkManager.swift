@@ -20,8 +20,25 @@
 
 import Moya
 import Foundation
+ /**
+ Moya is a networking library focused on encapsulating network requests in a type-safe way, typically by using enumerations (e.g., enum) to provide compile-time guarantees and confidence when working with your network layer, along with added discoverability.
+ It was built by Ash Furrow and Orta Therox for Artsy’s Eidolon app and quickly gained popularity. Today, it’s entirely maintained by a passionate community of open-source contributors.
+ <b>Moya’s Building Blocks</b> :
+ Provider: Moya’s MoyaProvider will be the main object that you’ll create and use when interacting with any network service. It’s a generic object that takes a Moya Target upon initialization.
+ Target: A Moya target usually describes an entire API service; in this case, a Marvel target and an Imgur target. Each of these targets describe the service, its possible endpoints, and the information required by each endpoint to perform a request. You define a target by conforming to the TargetType protocol.
+ Endpoint: Moya uses the semi-internal Endpoint object to describe the basic pieces of information required to perform a network request, e.g., HTTP method, request body, headers and more. Moya’s MoyaProvider transforms every target to an Endpoint, which is eventually transformed into a raw URLRequest. Endpoints are highly customizable but are out of scope for this tutorial as you won’t need any custom mappings.
 
+ */
 enum Services {
+    /**
+     Initializes a new bicycle with the provided parts and specifications.
+     
+     - Parameters:
+     - ApiKey: newsapi.org key
+     - Sources: like animal-planet
+    
+
+     */
     case GetArticles(ApiKey: String,Sources : String)
 }
 

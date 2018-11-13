@@ -29,13 +29,21 @@ class NewsDetailsViewController: UIViewController , SFSafariViewControllerDelega
             openInSafariView(urlString: urlString)
         }
     }
+    /**
+     this function called  when dismiss Safari.
+     
+     */
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-   
+    /**
+    Opens Article in a new Safari View.
+     - Parameters:
+     - String: url as String
+
+     */
     
-    //Opens Article in a new Safari View
     func openInSafariView(urlString : String) {
         let url = URL(string: urlString)!
         let controller = SFSafariViewController(url: url)
